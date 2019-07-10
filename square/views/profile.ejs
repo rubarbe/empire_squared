@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<title><%=user.username%>'s Profile</title>
+	<link rel="stylesheet" type="text/css" href="layout.css">
+</head>
+<body>
+	<div class="container">
+		<div class="title-bar">
+			<span><%=user.username%></span>
+		</div>
+		<div class="pfp-container">
+			<img src="<%=user.pfp%>" alt="profile picture">
+		</div><div class="profile-info">
+			<span>Rank:</span><span><%=user.rank%></span>
+			<span>Level:</span><span><%=user.level%></span>
+			<span>Gold:</span><span><%=user.gold%></span>
+			<span>Faction:</span><span><a href="#"><%=user.faction%></a></span>
+			<span>Location:</span><span><a href="#"><%=user.location%></a></span>
+			<span>Residency:</span><span><a href="#"><%=user.residency%></a>
+			</span>
+			<span>Money:</span><span><%=user.money%></span>
+			<span><a href="#">Messages</a></span><span><a href="#">Settings</a></span>
+		</div>
+	</div>
+	<div class="create-faction">
+		<form action="/create-party" method="POST">
+			<input type="text" name="faction" placeholder="Create Faction"><input type="submit" name="submit" value="Create">
+		</form>
+	</div>
+	<div class="container location" id='location'>
+		<div class="dynamic-section focused" id="focused">
+		</div><div class="dynamic-section hover" id="hover">
+		</div>
+		<div id="travel-button">
+		</div>
+	</div>
+	<div class="container map">
+		<% for(var p=0;p<400;p++){%>
+			<div class="tile" style="margin-top:<%=tile[p].y%>px;margin-left:<%=tile[p].x%>px;">
+				<span class='tile-data' owner = "<%=tile[p].owner%>" address="/map/<%=tile[p]._id%>" claim="/claim/<%=tile[p]._id%>" name="<%=tile[p].name%>" style="background-color: <%=tile[p].color%>"></span>
+			</div>
+		<%}%>
+	</div>
+	<script type="text/javascript">
+		for(var x=0;x<document.getElementsByClassName('tile-data').length;x++)
+		{
+			document.getElementsByClassName('tile-data')[x].addEventListener('click',function(e)
+			{
+				var name    = e.target.getAttribute('name');
+				var address = e.target.getAttribute('address');
+				var claim   = e.target.getAttribute('claim');
+				document.getElementById('focused').innerHTML = `
+				<img src="https://i.redd.it/wplnmfjltbgz.jpg" alt="territory logo"><div class='dynamic-detail'><span>${name}</span></div>`;
+				document.getElementById('travel-button').innerHTML = `<a href="${address}">Travel</a><a href="${claim}">Claim</a>`
+			})
+
+			document.getElementsByClassName('tile-data')[x].addEventListener('mousemove',function(e)
+			{
+				var name    = e.target.getAttribute('name');
+				var owner   = e.target.getAttribute('owner');
+				document.getElementById('hover').innerHTML = `
+					<img src="https://cdna.artstation.com/p/assets/images/images/007/544/590/large/fabian-klejewski-castle.jpg" alt="territory logo"><div class='dynamic-detail'><span>${owner}</span><span>${name}</span><span>Tundra</span></div>
+				`
+			})
+		}	
+	</script>
+</body>
+</html>

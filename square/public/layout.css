@@ -1,0 +1,190 @@
+html,body
+{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	font-family: arial;
+}
+
+.container
+{
+	width: 500px;
+	height: 250px;
+	background-color: pink;
+}
+
+.title-bar
+{
+	width: 100%;
+    height: 10%;
+    background-color: #2d1c1c;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+.pfp-container
+{
+	width: 200px;
+	height: 90%;
+	background-color: blue;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.pfp-container img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.profile-info
+{
+	width: 300px;
+    height: 90%;
+    background-color: #4a2828;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+.profile-info a
+{
+	border-style: dotted;
+    border-width: 0px;
+    text-decoration: none;
+    border-bottom-width: 1px;
+    border-color: white;
+    color: white;
+    box-sizing: border-box;
+}
+
+.profile-info a:hover
+{
+	color: #756fbf;
+	border-color: #756fbf;
+}
+
+.profile-info span
+{
+	width: 50%;
+    height: auto;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+.map
+{
+	background-color: #503838;
+	height: 390px;
+	position: absolute;
+	overflow: hidden;
+}
+
+.map .tile
+{
+	width: 30px;
+	height: 30px;
+	border-style: solid;
+	box-sizing: border-box;
+	border-width: 1px;
+	border-color: #503838;
+	background-color: white;
+	position: absolute;
+}
+
+.map .tile span
+{
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	display: block;
+	border-style: solid;
+	border-width: 0px;
+	border-color: #503838;
+	box-sizing: border-box;
+}
+
+.map .tile span:hover
+{
+	border-color: #f1dd3d;
+	border-width: 5px;
+}
+
+.location
+{
+	height: auto;
+	position: absolute;
+    z-index: 1;
+    background-color: rgba(40,40,40,0.9);
+}
+
+.location a 
+{
+    background-color: #6063ca;
+    box-sizing: border-box;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 75px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+
+}
+
+.location a:hover
+{
+	opacity: 0.9;
+}
+
+
+.location span
+{
+	display: block;
+}
+
+.dynamic-section
+{
+	width: 50%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.dynamic-section:hover
+{
+	background-color: #402a46;
+	cursor: pointer;
+}
+
+.dynamic-section span
+{
+	display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+}
+
+.dynamic-section img
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 30%;
+	height: 60px;
+}
+
+.dynamic-detail
+{
+	width: 70%;
+	height: auto;
+	display: inline-block;
+}
